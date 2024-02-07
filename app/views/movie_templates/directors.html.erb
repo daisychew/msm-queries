@@ -1,0 +1,48 @@
+<h1>List of all directors</h1>
+
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Image</th>
+    <th>Name</th>
+    <th>Dob</th>
+    <th></th>
+  </tr>
+
+  <% @directors.each do |director| %>
+    <tr>
+      <td>
+        <%= director['id'] %>
+      </td>
+      <td>
+        <img src=<%= director['image']%>>
+      </td>
+      <td>
+        <%= director['name'] %>
+      </td>
+      <td>
+        <%= director['dob'] %>
+      </td>
+      <td>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+<style>
+  table {
+    border-style: double; 
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: auto;
+    width: fit-content;
+  }
+
+  tr, td, th {
+    border-style: double;
+  }
+
+  img {
+    width: 250px;
+    height: auto;
+  }
