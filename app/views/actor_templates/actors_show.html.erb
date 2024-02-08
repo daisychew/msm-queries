@@ -1,14 +1,78 @@
 <h1>Actor #<%= @actor_id %> details</h1>
 
 <a href="/actors">Go back</a>
+<hr>
+<br>
 
-<div class="border-top border-bottom">
+<div>
   <div>Name</div>
-  <div><%=@actor_name%></div>
+    <div class="indented"><%=@actor_name%></div>
   <div>Dob</div>
-  <div><%=@actor_dob%></div>
+    <div class="indented"><%=@actor_dob%></div>
   <div>Bio</div>
-  <div><%=@actor_bio%></div>
+    <div class="indented"><%=@actor_bio%></div>
   <div>Image</div>
-  <img src=<%=@actor_image%>></div>
+    <img class="indented" src=<%=@actor_image%>></div>
+  <div>Created at</div>
+    <div class="indented"><%=@actor_created_at%></div>
+  <div>Updated at</div>
+    <div class="indented"><%=@actor_updated_at%></div>
 </div>
+<br>
+<hr>
+
+<h1>Filmography</h1>
+  <table border="1">
+   <tr>
+    <th>
+      Title
+    </th>
+
+    <th>
+      Year
+    </th>
+
+    <th>
+      Director
+    </th>
+
+    <th>
+      Character name
+    </th>
+
+    <th>
+    </th>
+  </tr>
+
+
+  <% @characters_played.each do |character| %>
+    <tr>
+      <td>
+        <%=  %>
+      </td>
+      <td>
+        <%= %>>
+      </td>
+      <td>
+        <%=  %>
+      </td>
+      <td>
+        <%= character['name'] %>
+      </td>
+      <td>
+        <a href="/actors/<%= character_id['movie_id'] %>">Show details</a>
+      </td>
+    </tr>
+  <% end %>
+  </table>
+
+<style>
+  .indented {
+    margin-left: 40px;
+  }
+
+  img {
+    width: 300px;
+    height: auto;
+  }
+</style>
