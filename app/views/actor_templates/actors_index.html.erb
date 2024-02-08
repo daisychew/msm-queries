@@ -1,33 +1,30 @@
-<h1>List of all movies</h1>
+<h1>List of all actors</h1>
 
 <table>
   <tr>
     <th>Id</th>
     <th>Image</th>
-    <th>Title</th>
-    <th>Year</th>
-    <th>Director</th>
+    <th>Name</th>
+    <th>Dob</th>
     <th></th>
   </tr>
 
-  <% @movies.each do |movie| %>
+  <% @actors.each do |actor| %>
     <tr>
       <td>
-        <%= movie['id'] %>
+        <%= actor['id'] %>
       </td>
       <td>
-        <img src=<%= movie['image']%>>
+        <img src=<%= actor['image']%>>
       </td>
       <td>
-        <%= movie['title'] %>
+        <%= actor['name'] %>
       </td>
       <td>
-        <%= movie['year'] %>
+        <%= actor['dob'] %>
       </td>
       <td>
-        <%= movie['director'] %>
-      </td>
-      <td>
+        <a href="/actors/<%= actor['id'] %>">Show details</a>
       </td>
     </tr>
   <% end %>

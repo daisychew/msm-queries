@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   get("/movies", controller: "movies", action: "movies")
 
   get("/actors", controller: "movies", action: "actors")
+
+  get("/actors/:actor_id", controller: "actors", action: "dynamic_actors")
 end
