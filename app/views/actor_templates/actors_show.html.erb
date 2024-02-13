@@ -51,7 +51,7 @@
         <%= @movie_info.at(i).title %>
       </td>
       <td>
-        <%= @movie_info.at(i).year %>>
+        <%= @movie_info.at(i).year %>
       </td>
       <td>
         <%=Director.where({:id => @movie_info.at(i).director_id}).at(0).name%>

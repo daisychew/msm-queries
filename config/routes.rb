@@ -3,11 +3,11 @@ Rails.application.routes.draw do
 
   get("/directors", controller: "directors", action: "directors")
 
-  get("/directors/:director_id", controller: "directors", action: "dynamic_directors")
-
   get("/directors/youngest", controller: "directors", action: "youngest_director")
 
   get("/directors/eldest", controller: "directors", action: "eldest_director")
+
+  get("/directors/:director_id", controller: "directors", action: "dynamic_directors")
 
   get("/movies", controller: "movies", action: "movies")
 
