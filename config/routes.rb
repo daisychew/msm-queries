@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   get("/movies/:movie_id", controller: "movies", action: "dynamic_movies")
 
-  get("/actors", controller: "actors", action: "actors")
+  get("/actors", controller: "actors", action: "index")
 
-  get("/actors/:actor_id", controller: "actors", action: "dynamic_actors")
+  get("/actors/:actor_id", controller: "actors", action: "show")
 end

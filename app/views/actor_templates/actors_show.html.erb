@@ -1,4 +1,4 @@
-<h1>Actor #<%= @actor_id %> details</h1>
+<h1>Actor #<%= @actor.id %> details</h1>
 
 <a href="/actors">Go back</a>
 <hr>
@@ -6,17 +6,17 @@
 
 <div>
   <div>Name</div>
-    <div class="indented"><%=@actor_name%></div>
+    <div class="indented"><%=@actor.name%></div>
   <div>Dob</div>
-    <div class="indented"><%=@actor_dob%></div>
+    <div class="indented"><%=@actor.dob%></div>
   <div>Bio</div>
-    <div class="indented"><%=@actor_bio%></div>
+    <div class="indented"><%=@actor.bio%></div>
   <div>Image</div>
-    <img class="indented" src=<%=@actor_image%>></div>
+    <img class="indented" src=<%=@actor.image%>></div>
   <div>Created at</div>
-    <div class="indented"><%=@actor_created_at%></div>
+    <div class="indented"><%=@actor.created_at%></div>
   <div>Updated at</div>
-    <div class="indented"><%=@actor_updated_at%></div>
+    <div class="indented"><%=@actor.updated_at%></div>
 </div>
 <br>
 <hr>
@@ -44,22 +44,23 @@
     </th>
   </tr>
 
-  <% (0...@characters_played.length).each do |i|%>
+  <% @characters.each do |character|%>
+    <% movie = Movie.where(:id => character.movie_id).at(0) %>
     <tr>
       <td>
-        <%= @movie_info.at(i).title %>
+        <%= movie.title %>
       </td>
       <td>
-        <%= @movie_info.at(i).year %>
+        <%= movie.year%>
       </td>
       <td>
-        <%=Director.where({:id => @movie_info.at(i).director_id}).at(0).name%>
+        <%= movie.director_id%>
       </td>
       <td>
-        <%= @character_name.at(i) %>
+       <%= character.name %>
       </td>
       <td>
-        <a href="/movies/<%= @movie_info.at(i).id %>">Show details</a>
+        <a href="/movies/<%= character.movie_id %>">Show details</a>
       </td>
     </tr>
   <% end %>
