@@ -45,22 +45,22 @@
   </tr>
 
 
-  <% @character_movie_id.each do |character| %>
+  <% (0...@characters_played.length).each do |i|%>
     <tr>
       <td>
-        <%= @movie_title %>
+        <%= @movie_info.at(i).title %>
       </td>
       <td>
-        <%= @movie_year %>>
+        <%= @movie_info.at(i).year %>>
       </td>
       <td>
-        <%=Director.where({:id => @movie_info.director_id}).at(0).name%>
+        <%=Director.where({:id => @movie_info.at(i).director_id}).at(0).name%>
       </td>
       <td>
-        <%= @character_name.at(0) %>
+        <%= @character_name.at(i) %>
       </td>
       <td>
-        <a href="/movies/<%= @movie_info.id %>">Show details</a>
+        <a href="/movies/<%= @movie_info.at(i).id %>">Show details</a>
       </td>
     </tr>
   <% end %>

@@ -1,22 +1,22 @@
-<h1>Director #<%= @actor_id %> details</h1>
+<h1>Director #<%= @director_id %> details</h1>
 
-<a href="/actors">Go back</a>
+<a href="/directors">Go back</a>
 <hr>
 <br>
 
 <div>
   <div>Name</div>
-    <div class="indented"><%=@actor_name%></div>
+    <div class="indented"><%=@director_info.name%></div>
   <div>Dob</div>
-    <div class="indented"><%=@actor_dob%></div>
+    <div class="indented"><%=@director_info.dob%></div>
   <div>Bio</div>
-    <div class="indented"><%=@actor_bio%></div>
+    <div class="indented"><%=@director_info.bio%></div>
   <div>Image</div>
-    <img class="indented" src=<%=@actor_image%>></div>
+    <img class="indented" src=<%=@director_info.image%>></div>
   <div>Created at</div>
-    <div class="indented"><%=@actor_created_at%></div>
+    <div class="indented"><%=@director_info.created_at%></div>
   <div>Updated at</div>
-    <div class="indented"><%=@actor_updated_at%></div>
+    <div class="indented"><%=@director_info.updated_at%></div>
 </div>
 <br>
 <hr>
@@ -24,6 +24,14 @@
 <h1>Filmography</h1>
   <table border="1">
    <tr>
+    <th>
+      ID
+    </th>
+
+    <th>
+      Image
+    </th>
+
     <th>
       Title
     </th>
@@ -35,32 +43,28 @@
     <th>
       Director
     </th>
-
-    <th>
-      Character name
-    </th>
-
-    <th>
-    </th>
   </tr>
 
 
-  <% @characters_played.each do |character| %>
+  <% (0...@movie_info.length).each do |movie| %>
     <tr>
       <td>
-        <%=  %>
+        <%= @movie_info.at(movie).id %>
       </td>
       <td>
-        <%= %>>
+        <img src=<%= @movie_info.at(movie).image %>>
       </td>
       <td>
-        <%=  %>
+        <%= @movie_info.at(movie).title %>
       </td>
       <td>
-        <%= character['name'] %>
+        <%= @movie_info.at(movie).year %>
       </td>
       <td>
-        <a href="/actors/<%= character_id['movie_id'] %>">Show details</a>
+        <%= @director_info.name %>
+      </td>
+      <td>
+        <a href="/movies/<%= @movie_info.at(movie).id %>">Show details</a>
       </td>
     </tr>
   <% end %>
@@ -72,7 +76,7 @@
   }
 
   img {
-    width: 300px;
+    width: 250px;
     height: auto;
   }
 </style>
